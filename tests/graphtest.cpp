@@ -21,10 +21,10 @@ TEST_CASE("graph1")
   graph Graph(5);
   Graph.read_mtrx(stream);
   
-  std::ostringstream ostream;
+  ostringstream ostream;
   Graph.graph_dfs(ostream, 1);
   
-   REQUIRE(result == output.str());
+   REQUIRE(result == ostream.str());
 }
 
 TEST_CASE("wrong size")
@@ -34,8 +34,10 @@ TEST_CASE("wrong size")
      "1 1 1\n"
      "1 1 1\n"
     };
+  istringstream stream (input);
+  
   graph Graph(3);
-  Graph.read_mtrx(input);
+  Graph.read_mtrx(stream);
   
   REQUIRE_THROWS(Graph.graph_dfs(ostream, 5));
 }
