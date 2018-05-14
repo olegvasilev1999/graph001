@@ -27,15 +27,14 @@ public:
 		}
 	}
 
-	bool read(std::istream & stream)
+	bool read_mtrx(std::istream & stream)
 	{
-		int n;
 		bool success = true;
-		if (stream >> n) {
-			int ** elements = new int *[n];
-			for (int i = 0; success && i < n; i++) {
-				elements[i] = new int[n];
-				for (int j = 0; j < n; ++j) {
+		if (success) {
+			int ** elements = new int *[vertices];
+			for (int i = 0; success && i < vertices; i++) {
+				elements[i] = new int[vertices];
+				for (int j = 0; j < vertices; ++j) {
 					if (!(stream >> elements[i][j])) {
 						success = false;
 						break;
@@ -43,10 +42,10 @@ public:
 				}
 			}
 			if (success) {
-				mtrx = elements;	
+				mtrx = elements;
 			}
 			else {
-				for (int i = 0; i < n; i++) {
+				for (int i = 0; i < vertices; i++) {
 					delete[] elements[i];
 				}
 				delete[] elements;
