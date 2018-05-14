@@ -39,5 +39,7 @@ TEST_CASE("wrong size")
   graph Graph(3);
   Graph.read_mtrx(stream);
   
+   ostringstream ostream;
+  
   REQUIRE_THROWS(Graph.graph_dfs(ostream, 5));
 }
