@@ -43,12 +43,7 @@ public:
 				}
 			}
 			if (success) {
-				vertices = n;
-				mtrx = elements;
-				visiting = new int[vertices];
-				for (int i = 0; i < vertices; i++) {
-					visiting[i] = 0;
-				}
+				mtrx = elements;	
 			}
 			else {
 				for (int i = 0; i < n; i++) {
