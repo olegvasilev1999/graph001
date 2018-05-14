@@ -1,5 +1,9 @@
 #include <catch.hpp>
+#include <sstream>
 #include "graph.cpp"
+
+
+using namespace std;
 
 TEST_CASE("graph1")
 {
