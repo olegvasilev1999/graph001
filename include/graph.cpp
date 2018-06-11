@@ -56,10 +56,7 @@ public:
 				}
 				delete[] elements;
 			}else {
-				for (int i = 0; i < vertices; i++) {
-					delete[] elements[i];
-				}
-				delete[] elements;
+				success = false;
 			}
 			
 		}
