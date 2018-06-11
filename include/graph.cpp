@@ -48,7 +48,15 @@ public:
 				}
 				delete[] mtrx;
 				}
-				mtrx = elements;
+				mtrx = new int * [vertices];
+				for (int i = 0; i < vertices; i++)
+				{
+					mtrx[i] = new int[vertices];
+					for (int j = 0; j < vertices; j++)
+					{
+						mtrx[i][j] = elements[i][j];
+					}
+				}
 				for (int i = 0; i < vertices; i++) {
 					delete[] elements[i];
 				}
