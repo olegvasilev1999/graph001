@@ -44,12 +44,10 @@ public:
 			if (success) {
 				mtrx = elements;
 			}
-			else {
-				for (int i = 0; i < vertices; i++) {
-					delete[] elements[i];
-				}
-				delete[] elements;
+			for (int i = 0; i < vertices; i++) {
+				delete[] elements[i];
 			}
+			delete[] elements;
 		}
 		else {
 			success = false;
