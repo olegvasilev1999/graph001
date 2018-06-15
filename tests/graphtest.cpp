@@ -43,3 +43,29 @@ TEST_CASE("wrong size")
   
   REQUIRE_THROWS(Graph.graph_dfs(ostream, 5));
 }
+
+TEST_CASE("way")
+{
+  string input {
+     "0 1 1 1\n"
+     "1 0 0 1\n"
+     "1 0 0 0\n"
+     "1 1 0 0\n"
+    };
+  istringstream stream (input);
+  
+  string result {
+    "1 0 \n"
+    "1 \n"
+    "1 0 2 \n"
+    "1 3 \n"
+  };
+  
+  graph Graph(4);
+  Graph.read_mtrx(stream);
+  
+  ostringstream ostream;
+  Graph.shortway(ostream, 1);
+  
+   REQUIRE(result == ostream.str());
+}
